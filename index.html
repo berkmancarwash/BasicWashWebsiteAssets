@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Wash Map</title>
+
+
+    <!-- link to leaflet for openstreet map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .leaflet-container {
+            height: 400px;
+            width: 600px;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id='map'>
+
+</div>
+
+
+<script>
+
+    // if error happens, it is probely the api key limit
+    // comment out var streets
+    // in baselayers steets
+    // in map commetn out where layer has streets and osm
+    // and it should be fine
+
+    var streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+    });
+
+    var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+
+    var baseLayers = {
+        'Streets': streets,
+        'OpenStreetMap': osm
+    };
+
+    var map = L.map('map', {
+        center: [51.7, 4.4],
+        zoom: 9,
+        layers: [streets, osm]
+        // layers: [osm]
+    });
+
+    var WashBoxIcon = L.Icon.extend({
+        options: {
+            iconSize: [40, 40],
+            iconAnchor: [40, 40],
+            popupAnchor: [-20, -40]
+        }
+    });
+
+
+    var SintWillebrordIcon = new WashBoxIcon({
+        iconUrl: 'assets/img/LogoBasicWashMagenta.png'
+    });
+    var ExpressBredaIcon = new WashBoxIcon({
+        iconUrl: 'assets/img/LogoBasicWashMagenta.png'
+    });
+    var HellevoetsluisIcon = new WashBoxIcon({
+        iconUrl: 'assets/img/LogoBasicWashMagenta.png'
+    });
+
+    var mSintWillebrord = L.marker([51.55600893165554, 4.58389466314544], {
+        icon: SintWillebrordIcon
+    }).bindPopup('<a href="https://goo.gl/maps/aKvN14y8Kc5yZstW8" target="_blank">Basic Wash Sint Willebrord</a>.').addTo(map);
+
+    var mExpressBreda = L.marker([51.58356199879242, 4.827792373012414], {
+        icon: ExpressBredaIcon
+    }).bindPopup('<a href="https://goo.gl/maps/EkRSxUYEMpSVXWQ26" target="_blank">Basic Wash Express Breda.</a>').addTo(map);
+
+    var mHellevoetsluis = L.marker([51.83909500282801, 4.134268], {
+        icon: HellevoetsluisIcon
+    }).bindPopup('<a href="https://goo.gl/maps/owPwFMmKxNBLuCtV9" target="_blank">Basic Wash Hellevoetsluis.</a>').addTo(map);
+
+    var layerControl = L.control.layers(baseLayers).addTo(map);
+</script>
+
+</body>
+
+</html>
