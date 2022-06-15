@@ -1,11 +1,22 @@
 document.addEventListener("load", event => {
-    document.querySelector("submitNumberPlate").addEventListener("click", searchNumberPlaet);
+    document.querySelector("submitNumberPlate").addEventListener("click", searchNumberPlate);
 });
 
+
+var input = document.getElementById("enter");
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("submitNumberPlate").click();
+    }
+});
+
+
+
 var washboxes = [
-    { name: "Sint Willebrord", height: "2400", width: "2380" },
-    { name: "Express Breda", height: "2900", width: "2580" },
-    { name: "Hellevoetsluis", height: "2600", width: "2380" },
+    {name: "Sint Willebrord", height: "2400", width: "2380"},
+    {name: "Express Breda", height: "2900", width: "2580"},
+    {name: "Hellevoetsluis", height: "2600", width: "2380"},
 //    { name: "Terheijden", height: "2400", width: "2380" }
 ];
 
@@ -18,7 +29,6 @@ var carModel;
 var carYear;
 var carWidth;
 var carHeight;
-
 
 
 function searchGekentekendeVoertuig(numberPlate) {
@@ -56,7 +66,6 @@ function searchGekentekendeVoertuig(numberPlate) {
                 `;
         })
 }
-
 
 
 function searchEEGVoertuigtypegoedkeuring(typeGoedKeuringsNummer) {
@@ -113,7 +122,6 @@ function searchBasisgegevensEEGUitvoering(eu_type_goedkeuringssleutel, eeg_uitvo
 }
 
 
-
 function checkToSeeIfCarFitsInWashBox() {
     let dataArea = document.getElementById('list');
     dataArea.innerHTML = `
@@ -144,7 +152,7 @@ function checkToSeeIfCarFitsInWashBox() {
             var row = `
                     <tr class="fit">
                     <td>${washboxes[i].name}</td>
-                    <td>${washboxesHightM }m</td>
+                    <td>${washboxesHightM}m</td>
                     <td>${washboxesWidthM}m</td>
                         <td><svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="#6DD038"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></td>
                     </tr>
@@ -188,9 +196,8 @@ function checkToSeeIfCarFitsInWashBox() {
 }
 
 
-
-function searchNumberPlaet(event) {
-    let numberPlate = document.getElementById("numberPlate").value;
+function searchNumberPlate(event) {
+    let numberPlate = document.getElementById("numberPlateInput").value;
 
     // string formating
     let numberPlateFormatted = "";
