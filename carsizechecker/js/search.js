@@ -6,7 +6,7 @@ var washboxes = [
     { name: "Sint Willebrord", height: "2400", width: "2380" },
     { name: "Express Breda", height: "2900", width: "2580" },
     { name: "Hellevoetsluis", height: "2600", width: "2380" },
-    { name: "Terheijden", height: "2400", width: "2380" }
+//    { name: "Terheijden", height: "2400", width: "2380" }
 ];
 
 var uitvoeringl;
