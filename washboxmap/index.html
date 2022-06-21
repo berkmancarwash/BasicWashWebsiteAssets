@@ -91,6 +91,10 @@
     var HellevoetsluisIcon = new WashBoxIcon({
         iconUrl: 'assets/img/locatieBasicWash.png'
     });
+    
+    var TerheijdenIcon = new WashBoxIcon({
+        iconUrl: 'assets/img/locatieBasicWash.png'
+    });
 
     var mSintWillebrord = L.marker([51.55600893165554, 4.58389466314544], {
         icon: SintWillebrordIcon
@@ -103,6 +107,10 @@
     var mHellevoetsluis = L.marker([51.83909500282801, 4.134268], {
         icon: HellevoetsluisIcon
     }).bindPopup('<a href="https://goo.gl/maps/owPwFMmKxNBLuCtV9" target="_blank">Basic Wash Hellevoetsluis.</a>').addTo(map);
+    
+    var mTerheijden = L.marker([51.65004713940157, 4.759421563508209], {
+        icon: TerheijdenIcon
+    }).bindPopup('<a href="https://goo.gl/maps/ym8Uky8VVKafxDZc9" target="_blank">Basic Wash Terheijden (Binnenkort).</a>').addTo(map);
 
     var layerControl = L.control.layers(baseLayers).addTo(map);
 </script>
