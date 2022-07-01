@@ -20,9 +20,6 @@ var washboxes = [
     {name: "Terheijden", height: "2600", width: "2360" }
 ];
 
-var uitvoeringl;
-
-
 // car information
 var carMake;
 var carModel;
@@ -180,7 +177,7 @@ function checkToSeeIfCarFitsInWashBox() {
             dataArea.innerHTML = `
                         <h2>Jouw auto is ${carHeightM}m hoog en ${carWidthM}m breed en past helaas niet in onze wasstraten*</h2>
                         `;
-        } else if (fitCounter == washboxes.length) {
+        } else if (fitCounter === washboxes.length) {
             let dataArea = document.getElementById('heading');
             dataArea.innerHTML = `
                         <h2>Jouw auto is ${carHeightM}m hoog en ${carWidthM}m breed en past in onze wasstraten*</h2>
