@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Car Size Checker Klanten Service</title>
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NYEXLC0WGW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-NYEXLC0WGW');
+    </script>
+</head>
+
+<body id="enter">
+    <main>
+        <h1>Past jouw auto in onze Carwash?</h1>
+        <p>Vul je kenteken in wij controleren het voor je!</p>
+        <div>
+            <form>
+                <input type="text" name="numberPlate" id="numberPlateInput" placeholder="XX123X">
+                <button type="button" value="Check" onclick="searchNumberPlate()" id="submitNumberPlate">Check</button>
+            </form>
+        </div>
+        <div id="list">
+
+        </div>
+    </main>
+    <div>
+        <h3>Eerste Api Check Output</h3>
+        <pre style="border:1px solid;overflow:auto;" id="firstapicall" class="apicalldata">
+        </pre>
+        <h3>Tweede Api Check Output</h3>
+        <pre style="border:1px solid;overflow:auto;" id="secondapicall" class="apicalldata">
+        </pre>
+        <h3>Derde Api Check Output</h3>
+        <pre style="border:1px solid;overflow:auto;" id="thirdapicall" class="apicalldata">
+        </pre>
+    </div>
+
+
+
+
+
+    <script type="text/javascript" src="js/search.js"></script>
+</body>
+
+</html>
