@@ -44,6 +44,8 @@ function searchGekentekendeVoertuig(numberPlate) {
         )
         .then((res) => {
             console.log(res[0]);
+            let link1 = document.getElementById('GekentekendeVoertuig');
+            link1.setAttribute('href', gekentekendeVoertuigUrl);
 
             let dataArea = document.getElementById('firstapicall');
             dataArea.textContent = JSON.stringify(res[0], undefined, 4);
@@ -85,6 +87,10 @@ function searchEEGVoertuigtypegoedkeuring(typeGoedKeuringsNummer) {
         )
         .then((res2) => {
             // console.log(res2[0]);
+
+            let link2 = document.getElementById('EEGVoertuigtypegoedkeuring');
+            link2.setAttribute('href', EEGVoertuigtypegoedkeuringUrl);
+
             let dataArea = document.getElementById('secondapicall');
             dataArea.textContent = JSON.stringify(res2[0], undefined, 4);
 
@@ -113,6 +119,10 @@ function searchBasisgegevensEEGUitvoering(eu_type_goedkeuringssleutel, eeg_uitvo
         )
         .then((res3) => {
             // console.log(res3[0]);
+
+            let link3 = document.getElementById('BasisgegevensEEGUitvoering');
+            link3.setAttribute('href', BasisgegevensEEGUitvoeringUrl);
+
 
             let dataArea = document.getElementById('thirdapicall');
             dataArea.textContent = JSON.stringify(res3[0], undefined, 4);
