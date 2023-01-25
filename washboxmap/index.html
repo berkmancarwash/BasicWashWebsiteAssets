@@ -94,19 +94,19 @@
         var TerheijdenIcon = new WashBoxIcon({
             iconUrl: 'assets/img/locatieBasicWash.png'
         });
+        var OosterhoutIcon = new WashBoxIcon({
+            iconUrl: 'assets/img/locatieBasicWash.png'
+        });
+        var UlvenhoutIcon = new WashBoxIcon({
+            iconUrl: 'assets/img/locatieBasicWash.png'
+        });
 
 
         // in aanbouw
-        var OosterhoutIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
-        });
         var ZevenbergenIcon = new WashBoxIcon({
             iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
         });
         var HoekVanHollandIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
-        });
-        var UlvenhoutIcon = new WashBoxIcon({
             iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
         });
 
@@ -128,12 +128,16 @@
             icon: TerheijdenIcon
         }).bindPopup('<a href="https://goo.gl/maps/UYCzGF9vAj7Vvdpg8" target="_blank">Basic Wash Terheijden (Binnenkort).</a>').addTo(map);
 
+        var mOosterhout = L.marker([51.64840430807004, 4.850598046759894], {
+            icon: OosterhoutIcon
+        }).bindPopup('<a href="https://goo.gl/maps/hiFAfY9ucaXqxjTU9" target="_blank">Basic Wash Oosterhout</a>.').addTo(map);
+
+        var mUlvenhout = L.marker([51.54749510670679, 4.798546718361791], {
+            icon: UlvenhoutIcon
+        }).bindPopup('<a href="https://goo.gl/maps/hn4KVbas58f6qM7A7" target="_blank">Basic Wash Ulvenhout</a>.').addTo(map);
+
 
         // in aanbouw
-        var mOosterhout = L.marker([51.641193, 4.860881], {
-            icon: OosterhoutIcon
-        }).bindPopup('<a href="https://goo.gl/maps/DtLRZhvQSE2w1LKMA" target="_blank">Basic Wash Oosterhout</a>.').addTo(map);
-
         var mZevenbergen = L.marker([51.646527, 4.607097], {
             icon: ZevenbergenIcon
         }).bindPopup('<a href="https://goo.gl/maps/Wy6Nnv89rKSr81Vu6" target="_blank">Basic Wash Zevenbergen</a>.').addTo(map);
@@ -143,9 +147,6 @@
         }).bindPopup('<a href="https://goo.gl/maps/GAgoqE9e25SnENH27" target="_blank">Basic Wash Hoek van Holland</a>.').addTo(map);
 
 
-        var mUlvenhout = L.marker([51.547971, 4.801443], {
-            icon: UlvenhoutIcon
-        }).bindPopup('<a href="https://goo.gl/maps/2R4ECENjKS5fgPnu9" target="_blank">Basic Wash Ulvenhout</a>.').addTo(map);
 
 
         var layerControl = L.control.layers(baseLayers).addTo(map);
