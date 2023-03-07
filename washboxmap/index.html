@@ -100,13 +100,13 @@
         var UlvenhoutIcon = new WashBoxIcon({
             iconUrl: 'assets/img/locatieBasicWash.png'
         });
+        var HoekVanHollandIcon = new WashBoxIcon({
+            iconUrl: 'assets/img/locatieBasicWash.png'
+        });
 
 
         // in aanbouw
         var ZevenbergenIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
-        });
-        var HoekVanHollandIcon = new WashBoxIcon({
             iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
         });
         var BarendrechtIcon = new WashBoxIcon({
@@ -139,21 +139,19 @@
             icon: UlvenhoutIcon
         }).bindPopup('<a href="https://goo.gl/maps/hn4KVbas58f6qM7A7" target="_blank">Basic Wash Ulvenhout</a>.').addTo(map);
 
+        var mHoekVanHolland = L.marker([51.971574480479156, 4.142321808813223], {
+            icon: HoekVanHollandIcon
+        }).bindPopup('<a href="https://goo.gl/maps/zeANght2rMru9HHP8" target="_blank">Basic Wash Hoek van Holland</a>.').addTo(map);
+
 
         // in aanbouw
         var mZevenbergen = L.marker([51.6502280741693, 4.594499430416364], {
             icon: ZevenbergenIcon
         }).bindPopup('<a href="https://goo.gl/maps/DWuhZioKwchp7Txv9" target="_blank">Basic Wash Zevenbergen (Binnenkort)</a>.').addTo(map);
 
-        var mHoekVanHolland = L.marker([51.971574480479156, 4.142321808813223], {
-            icon: HoekVanHollandIcon
-        }).bindPopup('<a href="https://goo.gl/maps/zeANght2rMru9HHP8" target="_blank">Basic Wash Hoek van Holland (Binnenkort)</a>.').addTo(map);
-
         var mBarendrecht = L.marker([51.85486634659118, 4.561791077632624], {
             icon: BarendrechtIcon
         }).bindPopup('<a href="https://goo.gl/maps/6ZHBpdMpX3UYzzy87" target="_blank">Basic Wash Barendrecht (Binnenkort)</a>.').addTo(map);
-
-
 
 
         var layerControl = L.control.layers(baseLayers).addTo(map);
