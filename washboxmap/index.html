@@ -50,28 +50,40 @@
         // in map commetn out where layer has streets and osm
         // and it should be fine
 
-        var streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-            id: 'mapbox/streets-v11',
-            tileSize: 512,
-            zoomOffset: -1,
-            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
-        });
+        // var streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        //     id: 'mapbox/streets-v11',
+        //     tileSize: 512,
+        //     zoomOffset: -1,
+        //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+        // });
 
         var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
 
+        // var Stadia_Outdoors = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
+        //     maxZoom: 20,
+        //     attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        // });
+
+
+
+
         var baseLayers = {
 
             'OpenStreetMap': osm,
-            'Streets': streets
+            // 'Map': Stadia_Outdoors,
+            // 'Streets': streets
+
+
         };
 
         var map = L.map('map', {
             center: [51.8, 4.4],
             zoom: 9,
-            layers: [streets, osm]
-                // layers: [osm]
+            // layers: [Stadia_Outdoors, osm]
+            // layers: [streets, osm]
+            layers: [osm]
         });
 
         var WashBoxIcon = L.Icon.extend({
@@ -103,15 +115,22 @@
         var HoekVanHollandIcon = new WashBoxIcon({
             iconUrl: 'assets/img/locatieBasicWash.png'
         });
+        var BarendrechtIcon = new WashBoxIcon({
+            iconUrl: 'assets/img/locatieBasicWash.png'
+        });
 
 
         // in aanbouw
         var ZevenbergenIcon = new WashBoxIcon({
             iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
         });
-        var BarendrechtIcon = new WashBoxIcon({
+        var KrimpenAanDenIjsselIcon = new WashBoxIcon({
             iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
         });
+        var RoosendaalIcon = new WashBoxIcon({
+            iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
+        });
+
 
 
 
@@ -143,15 +162,26 @@
             icon: HoekVanHollandIcon
         }).bindPopup('<a href="https://goo.gl/maps/Z9AKKB85pfPhBVXX8" target="_blank">Basic Wash Hoek van Holland</a>.').addTo(map);
 
+        var mBarendrecht = L.marker([51.85506985751551, 4.561778827763087], {
+            icon: BarendrechtIcon
+        }).bindPopup('<a href="https://goo.gl/maps/zXApCzMdie3VttN86" target="_blank">Basic Wash Barendrecht</a>.').addTo(map);
+
+
 
         // in aanbouw
         var mZevenbergen = L.marker([51.6502280741693, 4.594499430416364], {
             icon: ZevenbergenIcon
         }).bindPopup('<a href="https://goo.gl/maps/DWuhZioKwchp7Txv9" target="_blank">Basic Wash Zevenbergen (Binnenkort)</a>.').addTo(map);
 
-        var mBarendrecht = L.marker([51.85486634659118, 4.561791077632624], {
-            icon: BarendrechtIcon
-        }).bindPopup('<a href="https://goo.gl/maps/6ZHBpdMpX3UYzzy87" target="_blank">Basic Wash Barendrecht (Binnenkort)</a>.').addTo(map);
+        var mKrimpenAanDenIjssel = L.marker([51.915170095164655, 4.617250552642487], {
+            icon: KrimpenAanDenIjsselIcon
+        }).bindPopup('<a href="https://goo.gl/maps/SEikdddtTteb66Wu8" target="_blank">Basic Wash Krimpen aan den Ijssel (Binnenkort)</a>.').addTo(map);
+
+        var mRoosendaal = L.marker([51.53010391600489, 4.453417331161294], {
+            icon: RoosendaalIcon
+        }).bindPopup('<a href="https://goo.gl/maps/4V1TgnCcceuyys8SA" target="_blank">Basic Wash Roosendaal (Binnenkort)</a>.').addTo(map);
+
+
 
 
         var layerControl = L.control.layers(baseLayers).addTo(map);
