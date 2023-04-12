@@ -14,13 +14,14 @@ input.addEventListener("keypress", function(event) {
 
 
 var washboxes = [
-    {name: "Sint Willebrord", height: "2400", width: "2380"},
+    {name: "Barendrecht", height: "2900", width: "2580" },
     {name: "Express Breda", height: "2900", width: "2580"},
     {name: "Hellevoetsluis", height: "2600", width: "2380"},
+    {name: "Hoek van Holland", height: "2900", width: "2580" },
+    {name: "Oosterhout", height: "2600", width: "2580" },
+    {name: "Sint Willebrord", height: "2400", width: "2380"},
     {name: "Terheijden", height: "2600", width: "2360" },
     {name: "Ulvenhout", height: "2400", width: "2380" },
-    {name: "Oosterhout", height: "2600", width: "2580" },
-    {name: "Barendrecht", height: "2900", width: "2580" },
 ];
 
 // car information
