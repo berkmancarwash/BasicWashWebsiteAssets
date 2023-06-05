@@ -25,6 +25,7 @@ var washboxes = [
     {name: "Sint Willebrord", height: "2400", width: "2380"},
     {name: "Terheijden", height: "2600", width: "2360" },
     {name: "Ulvenhout", height: "2400", width: "2380" },
+    {name: "Zevenbergen", height: "2500", width: "2580" },
 ];
 
 // car information
