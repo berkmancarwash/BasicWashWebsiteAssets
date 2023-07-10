@@ -121,12 +121,12 @@
         var ZevenbergenIcon = new WashBoxIcon({
             iconUrl: 'assets/img/locatieBasicWash.png'
         });
+        var KrimpenAanDenIjsselIcon = new WashBoxIcon({
+            iconUrl: 'assets/img/locatieBasicWash.png'
+        });
 
 
         // in aanbouw
-        var KrimpenAanDenIjsselIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
-        });
         var RoosendaalIcon = new WashBoxIcon({
             iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
         });
@@ -169,14 +169,12 @@
         var mZevenbergen = L.marker([51.6502280741693, 4.594499430416364], {
             icon: ZevenbergenIcon
         }).bindPopup('<a href="https://goo.gl/maps/W4tc2jbRnZUvutAX8" target="_blank">Basic Wash Zevenbergen</a>.').addTo(map);
-
+        var mKrimpenAanDenIjssel = L.marker([51.915170095164655, 4.617250552642487], {
+            icon: KrimpenAanDenIjsselIcon
+        }).bindPopup('<a href="https://goo.gl/maps/SEikdddtTteb66Wu8" target="_blank">Basic Wash Krimpen aan den Ijssel</a>.').addTo(map);
 
 
         // in aanbouw
-        var mKrimpenAanDenIjssel = L.marker([51.915170095164655, 4.617250552642487], {
-            icon: KrimpenAanDenIjsselIcon
-        }).bindPopup('<a href="https://goo.gl/maps/SEikdddtTteb66Wu8" target="_blank">Basic Wash Krimpen aan den Ijssel (Binnenkort)</a>.').addTo(map);
-
         var mRoosendaal = L.marker([51.53010391600489, 4.453417331161294], {
             icon: RoosendaalIcon
         }).bindPopup('<a href="https://goo.gl/maps/4V1TgnCcceuyys8SA" target="_blank">Basic Wash Roosendaal (Binnenkort)</a>.').addTo(map);
