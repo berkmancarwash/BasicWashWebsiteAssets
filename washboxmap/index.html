@@ -74,8 +74,6 @@
             'OpenStreetMap': osm,
             // 'Map': Stadia_Outdoors,
             // 'Streets': streets
-
-
         };
 
         var map = L.map('map', {
@@ -89,98 +87,77 @@
         var WashBoxIcon = L.Icon.extend({
             options: {
                 iconSize: [50, 60],
-                iconAnchor: [50, 60],
-                popupAnchor: [-25, -60]
+                iconAnchor: [25,60],
+                popupAnchor: [0, -60]
             }
         });
 
-        var SintWillebrordIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
-        var ExpressBredaIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
-        var HellevoetsluisIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
-        var TerheijdenIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
-        var OosterhoutIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
-        var UlvenhoutIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
-        var HoekVanHollandIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
-        var BarendrechtIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
-        var ZevenbergenIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
-        var KrimpenAanDenIjsselIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/locatieBasicWash.png'
-        });
 
+        //BasicWash
+        var bwwashboxes = [
+            {name: "Basic Wash Sint Willebrord", coordinates: [51.55600893165554, 4.58389466314544], href: "https://goo.gl/maps/aKvN14y8Kc5yZstW8"},
+            {name: "Basic Wash Express Breda", coordinates: [51.58356199879242, 4.827792373012414], href: "https://goo.gl/maps/EkRSxUYEMpSVXWQ26"},
+            {name: "Basic Wash Hellevoetsluis", coordinates: [51.83909500282801, 4.134268], href: "https://goo.gl/maps/ZgqiQDCqDZrFuwHt9"},
+            {name: "Basic Wash Terheijden", coordinates: [51.65004713940157, 4.759421563508209], href: "https://goo.gl/maps/UYCzGF9vAj7Vvdpg8"},
+            {name: "Basic Wash Oosterhout", coordinates: [51.64840430807004, 4.850598046759894], href: "https://goo.gl/maps/hiFAfY9ucaXqxjTU9"},
+            {name: "Basic Wash Ulvenhout", coordinates: [51.54749510670679, 4.798546718361791], href: "https://goo.gl/maps/hn4KVbas58f6qM7A7"},
+            {name: "Basic Wash Hoek van Holland", coordinates: [51.971574480479156, 4.142321808813223], href: "https://goo.gl/maps/Z9AKKB85pfPhBVXX8"},
+            {name: "Basic Wash Barendrecht", coordinates: [51.85506985751551, 4.561778827763087], href: "https://goo.gl/maps/zXApCzMdie3VttN86"},
+            {name: "Basic Wash Zevenbergen", coordinates: [51.6502280741693, 4.594499430416364], href: "https://goo.gl/maps/W4tc2jbRnZUvutAX8"},
+            {name: "Basic Wash Krimpen aan den Ijssel", coordinates: [51.915170095164655, 4.617250552642487], href: "https://goo.gl/maps/SEikdddtTteb66Wu8"},
+        ]
+        //BasicWashAanbouw
+        var bwwashboxesaanbouw = [
+            {name: "Basic Wash Roosendaal (Binnenkort)", coordinates: [51.53010391600489, 4.453417331161294], href: "https://goo.gl/maps/4V1TgnCcceuyys8SA"},
+        ]
 
-        // in aanbouw
-        var RoosendaalIcon = new WashBoxIcon({
-            iconUrl: 'assets/img/LocatieBasicWashInAanbouw.png'
-        });
+        //BP
+        var bwpwrbywashboxesbp = [
+            {name: "Powered by Basic Wash", coordinates: [51.799619834608976, 4.70722604129207], href: "https://goo.gl/maps/NqYDXtpWfv5PnshB9"},
 
+        ]
 
+        //TotalEnergies
+        var bwpwrbywashboxestotalenergies = [
+            {name: "Powered by Basic Wash", coordinates: [52.08048359573228, 4.388324901945391], href: "https://goo.gl/maps/8WCwjKtHHBYgypAd7"},
 
+        ]
 
-        var mSintWillebrord = L.marker([51.55600893165554, 4.58389466314544], {
-            icon: SintWillebrordIcon
-        }).bindPopup('<a href="https://goo.gl/maps/aKvN14y8Kc5yZstW8" target="_blank">Basic Wash Sint Willebrord</a>.').addTo(map);
+        // for loop the bwwashboxes and add them to the map
+        for (var i = 0; i < bwwashboxes.length; i++) {
+            var marker = L.marker(bwwashboxes[i].coordinates, {
+                icon: new WashBoxIcon({
+                    iconUrl: "assets/img/bw_location_pink.png"
+                })
+            }).bindPopup('<a href="' + bwwashboxes[i].href + '" target="_blank">' + bwwashboxes[i].name + '</a>.').addTo(map);
+        }
 
-        var mExpressBreda = L.marker([51.58356199879242, 4.827792373012414], {
-            icon: ExpressBredaIcon
-        }).bindPopup('<a href="https://goo.gl/maps/EkRSxUYEMpSVXWQ26" target="_blank">Basic Wash Express Breda.</a>').addTo(map);
+        // for loop the bwwashboxesaanbouw and add them to the map
+        for (var i = 0; i < bwwashboxesaanbouw.length; i++) {
+            var marker = L.marker(bwwashboxesaanbouw[i].coordinates, {
+                icon: new WashBoxIcon({
+                    iconUrl: "assets/img/bw_location_gray.png"
+                })
+            }).bindPopup('<a href="' + bwwashboxesaanbouw[i].href + '" target="_blank">' + bwwashboxesaanbouw[i].name + '</a>.').addTo(map);
+        }
 
-        var mHellevoetsluis = L.marker([51.83909500282801, 4.134268], {
-            icon: HellevoetsluisIcon
-        }).bindPopup('<a href="https://goo.gl/maps/ZgqiQDCqDZrFuwHt9" target="_blank">Basic Wash Hellevoetsluis.</a>').addTo(map);
+        // for loop the bwpwrbywashboxesbp and add them to the map
+        for (var i = 0; i < bwpwrbywashboxesbp.length; i++) {
+            var marker = L.marker(bwpwrbywashboxesbp[i].coordinates, {
+                icon: new WashBoxIcon({
+                    iconUrl: "assets/img/bw_location_powered_by_green.png"
+                })
+            }).bindPopup('<a href="' + bwpwrbywashboxesbp[i].href + '" target="_blank">' + bwpwrbywashboxesbp[i].name + '</a>.').addTo(map);
+        }
 
-        var mTerheijden = L.marker([51.65004713940157, 4.759421563508209], {
-            icon: TerheijdenIcon
-        }).bindPopup('<a href="https://goo.gl/maps/UYCzGF9vAj7Vvdpg8" target="_blank">Basic Wash Terheijden.</a>').addTo(map);
-
-        var mOosterhout = L.marker([51.64840430807004, 4.850598046759894], {
-            icon: OosterhoutIcon
-        }).bindPopup('<a href="https://goo.gl/maps/hiFAfY9ucaXqxjTU9" target="_blank">Basic Wash Oosterhout</a>.').addTo(map);
-
-        var mUlvenhout = L.marker([51.54749510670679, 4.798546718361791], {
-            icon: UlvenhoutIcon
-        }).bindPopup('<a href="https://goo.gl/maps/hn4KVbas58f6qM7A7" target="_blank">Basic Wash Ulvenhout</a>.').addTo(map);
-
-        var mHoekVanHolland = L.marker([51.971574480479156, 4.142321808813223], {
-            icon: HoekVanHollandIcon
-        }).bindPopup('<a href="https://goo.gl/maps/Z9AKKB85pfPhBVXX8" target="_blank">Basic Wash Hoek van Holland</a>.').addTo(map);
-
-        var mBarendrecht = L.marker([51.85506985751551, 4.561778827763087], {
-            icon: BarendrechtIcon
-        }).bindPopup('<a href="https://goo.gl/maps/zXApCzMdie3VttN86" target="_blank">Basic Wash Barendrecht</a>.').addTo(map);
-
-        var mZevenbergen = L.marker([51.6502280741693, 4.594499430416364], {
-            icon: ZevenbergenIcon
-        }).bindPopup('<a href="https://goo.gl/maps/W4tc2jbRnZUvutAX8" target="_blank">Basic Wash Zevenbergen</a>.').addTo(map);
-        var mKrimpenAanDenIjssel = L.marker([51.915170095164655, 4.617250552642487], {
-            icon: KrimpenAanDenIjsselIcon
-        }).bindPopup('<a href="https://goo.gl/maps/SEikdddtTteb66Wu8" target="_blank">Basic Wash Krimpen aan den Ijssel</a>.').addTo(map);
-
-
-        // in aanbouw
-        var mRoosendaal = L.marker([51.53010391600489, 4.453417331161294], {
-            icon: RoosendaalIcon
-        }).bindPopup('<a href="https://goo.gl/maps/4V1TgnCcceuyys8SA" target="_blank">Basic Wash Roosendaal (Binnenkort)</a>.').addTo(map);
-
-
-
+        // for loop the bwpwrbywashboxestotalenergies and add them to the map
+        for (var i = 0; i < bwpwrbywashboxestotalenergies.length; i++) {
+            var marker = L.marker(bwpwrbywashboxestotalenergies[i].coordinates, {
+                icon: new WashBoxIcon({
+                    iconUrl: "assets/img/bw_location_powered_by_brown.png"
+                })
+            }).bindPopup('<a href="' + bwpwrbywashboxestotalenergies[i].href + '" target="_blank">' + bwpwrbywashboxestotalenergies[i].name + '</a>.').addTo(map);
+        }
 
         var layerControl = L.control.layers(baseLayers).addTo(map);
     </script>
