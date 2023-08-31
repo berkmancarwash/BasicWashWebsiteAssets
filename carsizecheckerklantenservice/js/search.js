@@ -27,6 +27,8 @@ var washboxes = [
     {name: "Ulvenhout", height: "2400", width: "2380" },
     {name: "Zevenbergen", height: "2500", width: "2580" },
     {name: "Krimpen aan den IJssel", height: "2250", width: "2580" },
+    {name: "Voorburg", height: "2800", width: "2580" },
+    {name: "Dordrecht", height: "2400", width: "2580" },
 ];
 
 // car information
