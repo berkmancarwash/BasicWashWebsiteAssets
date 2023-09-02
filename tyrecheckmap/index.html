@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Type Check Map</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NYEXLC0WGW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-NYEXLC0WGW');
+    </script>
+
+    <!-- link to leaflet for openstreet map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        .leaflet-container {
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='map'>
+
+    </div>
+
+
+    <script>
+        // if error happens, it is probely the api key limit
+        // comment out var streets
+        // in baselayers steets
+        // in map commetn out where layer has streets and osm
+        // and it should be fine
+
+        // var streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        //     id: 'mapbox/streets-v11',
+        //     tileSize: 512,
+        //     zoomOffset: -1,
+        //     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
+        // });
+
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        });
+
+        // var Stadia_Outdoors = L.tileLayer('https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png', {
+        //     maxZoom: 20,
+        //     attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+        // });
+
+
+
+
+        var baseLayers = {
+
+            'OpenStreetMap': osm,
+            // 'Map': Stadia_Outdoors,
+            // 'Streets': streets
+        };
+
+        var map = L.map('map', {
+            center: [51.8, 4.4],
+            zoom: 10,
+            // layers: [Stadia_Outdoors, osm]
+            // layers: [streets, osm]
+            layers: [osm]
+        });
+
+        var WashBoxIcon = L.Icon.extend({
+            options: {
+                iconSize: [50, 50],
+                iconAnchor: [25,60],
+                popupAnchor: [0, -60]
+            }
+        });
+
+
+        //bandenpomp
+        var bandenpomp = [
+            {name: "Berkman Barendrecht", coordinates: [51.855001617167815, 4.561937285630665], href: "https://goo.gl/maps/3Jxs8bquMD624Woy9"},
+            {name: "Berkman Etten-Leur", coordinates: [51.584138318954544, 4.66564737293414], href: "https://goo.gl/maps/XsbXE6JAh2jXtvuHA"},
+            {name: "Berkman Nieuwerkerk", coordinates: [51.64833543150007, 3.9966390655511104], href: "https://goo.gl/maps/9BVNoy8Emyc8dzSH9"},
+            {name: "Berkman Papendrecht", coordinates: [51.83016867047048, 4.686725838383137], href: "https://goo.gl/maps/LU1Macr7SiaX5AQv6"},
+            {name: "Berkman Oud Beijerland", coordinates: [51.82431968798857, 4.429051962145481], href: "https://goo.gl/maps/rnRAeZcj6hPhUSVn9"},
+        ]
+
+        //profile
+        var profile = [
+            {name: "DBS Barendrecht", coordinates: [51.862251423153815, 4.55327384235026], href: "https://goo.gl/maps/1aMwMbcZ8bPUMZDcA"},
+            {name: "DBS Etten-Leur", coordinates: [51.57086590985577, 4.60951690531237], href: "https://goo.gl/maps/CWmizorhm6UVEBsQ6"},
+            {name: "DBS Zierikzee", coordinates: [51.64826437132032, 3.933187942082681], href: "https://goo.gl/maps/dJtyGPLK4bK6fxdr6"},
+            {name: "DBS Papendrecht", coordinates: [51.84321979781676, 4.6804316267457295], href: "https://goo.gl/maps/X1Wv93drde2FdB1n6"},
+            {name: "DBS Oude Beijerland", coordinates: [51.823819722589754, 4.4290143981570695], href: "https://goo.gl/maps/T5cymQEQj5piLdvD9"},
+        ]
+
+        for (var i = 0; i < bandenpomp.length; i++) {
+            var marker = L.marker(bandenpomp[i].coordinates, {
+                icon: new WashBoxIcon({
+                    iconUrl: "assets/img/tyre_check.png"
+                })
+            }).bindPopup('<a href="' + bandenpomp[i].href + '" target="_blank">' + bandenpomp[i].name + '</a>.').addTo(map);
+        }
+
+        for (var i = 0; i < profile.length; i++) {
+            var marker = L.marker(profile[i].coordinates, {
+                icon: new WashBoxIcon({
+                    iconUrl: "assets/img/profile_rood.png"
+                })
+            }).bindPopup('<a href="' + profile[i].href + '" target="_blank">' + profile[i].name + '</a>.').addTo(map);
+        }
+
+        var layerControl = L.control.layers(baseLayers).addTo(map);
+    </script>
+
+</body>
+
+</html>
