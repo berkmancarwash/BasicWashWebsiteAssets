@@ -11,3 +11,5 @@
 [Car Size Checker klanten Service Link](https://berkmancarwash.github.io/BasicWashWebsiteAssets/carsizecheckerklantenservice/index.html)
 
 [Washbox Map Link](https://berkmancarwash.github.io/BasicWashWebsiteAssets/washboxmap/index.html)
+
+[Typecheck Map Link](https://berkmancarwash.github.io/BasicWashWebsiteAssets/tyrecheckmap/index.html)
